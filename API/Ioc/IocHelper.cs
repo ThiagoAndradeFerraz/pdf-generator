@@ -8,7 +8,7 @@ namespace Ioc
     {
         public static void RegisterServices(IServiceCollection services)
         {
-            services.AddScoped<IGetContractTypesHandler, GetContractTypesHandler>();
+            services.AddScoped<IListTemplateOptions, GetContractTypesHandler>();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using ApiPdfGenerator.Responses;
+using Domain.Entities;
 using Domain.Handlers.Contract;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,15 +10,18 @@ namespace ApiPdfGenerator.Controllers
     public class ContractsController : ControllerBase
     {
         /// <summary>
-        /// Retrieves a list of available types of contracts.
+        /// Retrieves a list of available contract templates
         /// </summary>
-        [HttpGet("types")]
-        [ProducesResponseType(typeof(IEnumerable<ContractType>), StatusCodes.Status200OK)]
-        public async Task<ActionResult> GetTypesAsync(
-            [FromServices] IGetContractTypesHandler handler)
+        [HttpGet("templates")]
+        [ProducesResponseType(typeof(ListTemplatesResp), StatusCodes.Status200OK)]
+        public async Task<ActionResult> ListTemplates(
+            [FromServices] IListTemplateOptions handler)
         {
-            var contractTypes = await handler.GetContractTypesAsync();
-            return Ok(contractTypes);
+            IEnumerable<Template> templates = await handler.ListTemplates();
+            
+            ListTemplatesResp response = new(templates);
+            
+            return Ok(response);
         }
     }
 }
