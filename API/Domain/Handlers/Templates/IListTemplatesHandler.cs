@@ -1,6 +1,6 @@
 ﻿using Domain.Entities;
 
-namespace Domain.Handlers.Contract
+namespace Domain.Handlers.Templates
 {
     public interface IListTemplatesHandler
     {

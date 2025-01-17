@@ -1,8 +1,8 @@
 ﻿using Domain.Entities;
-using Domain.Handlers.Contract;
+using Domain.Handlers.Templates;
 using Domain.Repositories;
 
-namespace Application.Handlers.Contract
+namespace Application.Handlers.Templates
 {
     public class ListTemplatesHandler(
         IContractRepository repository) : IListTemplatesHandler

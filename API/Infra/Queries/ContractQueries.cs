@@ -12,5 +12,15 @@ namespace Infra.Queries
             FROM 
                 pdf_generator.contract_templates
             """;
+
+        public const string GetTemplatePathQuery =
+            $"""
+            SELECT
+                template_path
+            FROM
+                pdf_generator.contract_templates
+            WHERE
+                template_id = @TemplateId
+            """;
     }
 }

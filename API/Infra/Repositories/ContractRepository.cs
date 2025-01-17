@@ -21,6 +21,16 @@ namespace Infra.Repositories
             return templates;
         }
 
+        public async Task<string?> GetTemplatePath(int id)
+        {
+            using var connection = CreateConnection();
+
+            string? path = await connection.ExecuteScalarAsync<string>(
+                ContractQueries.GetTemplatePathQuery, new { TemplateId = id });
+
+            return path;
+        }
+
         private MySqlConnection CreateConnection()
         {
             string connString =
