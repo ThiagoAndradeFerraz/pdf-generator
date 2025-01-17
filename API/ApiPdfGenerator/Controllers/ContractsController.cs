@@ -14,10 +14,10 @@ namespace ApiPdfGenerator.Controllers
         /// </summary>
         [HttpGet("templates")]
         [ProducesResponseType(typeof(ListTemplatesResp), StatusCodes.Status200OK)]
-        public async Task<ActionResult> ListTemplates(
-            [FromServices] IListTemplateOptions handler)
+        public async Task<ActionResult> ListTemplatesAsync(
+            [FromServices] IListTemplatesHandler handler)
         {
-            IEnumerable<Template> templates = await handler.ListTemplates();
+            IEnumerable<Template> templates = await handler.ListTemplatesAsync();
             
             ListTemplatesResp response = new(templates);
             

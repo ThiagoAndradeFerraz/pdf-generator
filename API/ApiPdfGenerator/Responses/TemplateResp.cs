@@ -2,15 +2,9 @@
 
 namespace ApiPdfGenerator.Responses
 {
-    public class TemplateResp
+    public class TemplateResp(Template entity)
     {
-        public int Id { get; set; }
-        public string Description { get; set; } = string.Empty;
-
-        public TemplateResp(Template entity)
-        {
-            Id = entity.Id;
-            Description = entity.Description;
-        }
+        public int Id { get; } = entity.Id;
+        public string Description { get; set; } = entity.Description;
     }
 }

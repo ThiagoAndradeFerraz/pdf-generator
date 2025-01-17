@@ -1,5 +1,7 @@
 ﻿using Application.Handlers.Contract;
 using Domain.Handlers.Contract;
+using Domain.Repositories;
+using Infra.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Ioc
@@ -8,7 +10,8 @@ namespace Ioc
     {
         public static void RegisterServices(IServiceCollection services)
         {
-            services.AddScoped<IListTemplateOptions, GetContractTypesHandler>();
+            services.AddScoped<IContractRepository, ContractRepository>();
+            services.AddScoped<IListTemplatesHandler, ListTemplatesHandler>();
         }
     }
 }
